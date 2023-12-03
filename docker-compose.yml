@@ -15,10 +15,10 @@ services:
         environment:
             DB_HOST: db
             DB_PORT: 3306
-            DB_DATABASE: db_project
-            DB_USERNAME: user1
-            DB_PASSWORD: user1password
-        command: sh -c "composer install && php artisan migrate && php artisan serve --host 0.0.0.0 --port 8000 "
+            DB_DATABASE: biblioteca
+            DB_USERNAME: root
+            DB_PASSWORD: rootpassword
+        command: sh -c "composer install && sleep 10 &&  php artisan migrate && php artisan serve --host 0.0.0.0 --port 8000 "
 
     db:
         networks:
@@ -26,7 +26,7 @@ services:
         image: mysql:latest
         environment:
             MYSQL_ROOT_PASSWORD: rootpassword
-            MYSQL_DATABASE: db_project
+            MYSQL_DATABASE: biblioteca
             MYSQL_USER: user1
             MYSQL_PASSWORD: user1password
         ports:
